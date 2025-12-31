@@ -1,4 +1,3 @@
-import { revalidatePath } from "next/cache";
 import MeetupList from "../components/meetups/MeetupList";
 import { getClient } from "../lib/mongodb";
 
@@ -33,6 +32,6 @@ export async function getStaticProps() {
     props: {
       meetups: meetupsData,
     },
-    revalidate: 10, // in seconds
+    revalidate: 1, // in seconds
   };
 }
