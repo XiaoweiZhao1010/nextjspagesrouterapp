@@ -17,7 +17,7 @@ export default function NewMeetup() {
         },
       });
       const data = await response.json();
-      router.push("/"); //redirect to homepage after submission
+      // router.push("/"); //redirect to homepage after submission
       router.replace(router.asPath); //refresh the page to show the new meetup
     } catch (error) {
       console.error("Error adding meetup:", error);
