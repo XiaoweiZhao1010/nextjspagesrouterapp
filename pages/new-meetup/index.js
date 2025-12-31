@@ -16,9 +16,11 @@ export default function NewMeetup() {
           "Content-Type": "application/json",
         },
       });
-      const data = await response.json();
-      // router.push("/"); //redirect to homepage after submission
-      router.replace("/"); //refresh the page to show the new meetup
+      if (!response.ok) {
+        setSubmitting(false);
+        throw new Error("Failed to add meetup");
+      }
+      router.push("/"); //redirect to homepage after submission
     } catch (error) {
       console.error("Error adding meetup:", error);
       setSubmitting(false); //reset submitting state on error
